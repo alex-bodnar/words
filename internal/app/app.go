@@ -6,9 +6,10 @@ import (
 
 	"github.com/alex-bodnar/lib/http/responder"
 	"github.com/alex-bodnar/lib/log"
-	"github.com/jmoiron/sqlx"
+	"github.com/jackc/pgx/v5"
 
 	"github.com/alex-bodnar/words/internal/api/delivery"
+	"github.com/alex-bodnar/words/internal/api/repository"
 	"github.com/alex-bodnar/words/internal/config"
 )
 
@@ -39,11 +40,17 @@ type (
 		logger log.Logger
 
 		dbMigrationsFS embed.FS
-		db             *sqlx.DB
+		db             *pgx.Conn
 
 		responder responder.Responder
 
 		// Repository dependencies.
+		txRepo           repository.TX
+		descriptionRepo  repository.Description
+		groupsRepo       repository.Groups
+		languagesRepo    repository.Languages
+		translationsRepo repository.Translations
+		wordsRepo        repository.Words
 
 		// Service dependencies.
 

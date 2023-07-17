@@ -8,5 +8,5 @@ import (
 
 // initDatabase init database in app struct.
 func (a *App) initDatabase(ctx context.Context) {
-	a.db = database.InitDatabase(a.config.Storage.Postgres, a.logger, a.dbMigrationsFS)
+	a.db = database.InitDatabase(ctx, a.config.Storage.Postgres, a.logger, a.dbMigrationsFS)
 }

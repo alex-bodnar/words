@@ -9,6 +9,7 @@ import (
 	"syscall"
 
 	_ "github.com/jackc/pgx/stdlib"
+	_ "github.com/jackc/pgx/v5"
 
 	"github.com/alex-bodnar/words/internal/app"
 	"github.com/alex-bodnar/words/internal/config"

@@ -9,7 +9,6 @@ logger:
 storage:
   postgres:
     connection-string: "host=localhost port=5432 user=postgres dbname=words password=postgres sslmode=disable"
-    driver: pgx
     dialect: postgres
     max-retries: 5
     retry-delay: 10s
