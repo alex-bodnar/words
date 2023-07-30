@@ -7,4 +7,7 @@ func (a *App) registerHTTPRoutes(app *fiber.App) {
 
 	// Status
 	router.Get("/status", a.statusHTTPHandler.CheckStatus)
+
+	// Languages
+	router.Post("/languages", a.languagesHTTPHandler.Create)
 }

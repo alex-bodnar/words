@@ -3,7 +3,7 @@ package description
 import (
 	"context"
 
-	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 
 	"github.com/alex-bodnar/words/internal/api/domain/description"
 	"github.com/alex-bodnar/words/internal/api/repository"
@@ -15,11 +15,11 @@ var _ repository.Description = &Repository{}
 
 // Repository implements repository.Description interface.
 type Repository struct {
-	db *pgx.Conn
+	db *pgxpool.Pool
 }
 
 // NewRepository constructor.
-func NewRepository(db *pgx.Conn) *Repository {
+func NewRepository(db *pgxpool.Pool) *Repository {
 	return &Repository{
 		db: db,
 	}

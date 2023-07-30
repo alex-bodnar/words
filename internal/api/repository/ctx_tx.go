@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/jackc/pgx/v5"
+	"github.com/jackc/pgx/v5/pgxpool"
 )
 
 type txKey struct{}
@@ -28,11 +29,11 @@ type TX interface {
 
 // txRepo is a base repository for working with transactions.
 type txRepo struct {
-	db *pgx.Conn
+	db *pgxpool.Pool
 }
 
 // NewTxRepo constructor.
-func NewTxRepo(db *pgx.Conn) *txRepo {
+func NewTxRepo(db *pgxpool.Pool) *txRepo {
 	return &txRepo{
 		db: db,
 	}

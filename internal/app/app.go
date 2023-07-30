@@ -6,10 +6,12 @@ import (
 
 	"github.com/alex-bodnar/lib/http/responder"
 	"github.com/alex-bodnar/lib/log"
-	"github.com/jackc/pgx/v5"
+	"github.com/go-playground/validator/v10"
+	"github.com/jackc/pgx/v5/pgxpool"
 
 	"github.com/alex-bodnar/words/internal/api/delivery"
 	"github.com/alex-bodnar/words/internal/api/repository"
+	"github.com/alex-bodnar/words/internal/api/services"
 	"github.com/alex-bodnar/words/internal/config"
 )
 
@@ -38,9 +40,10 @@ type (
 		// tech dependencies.
 		config *config.Config
 		logger log.Logger
+		valid  *validator.Validate
 
 		dbMigrationsFS embed.FS
-		db             *pgx.Conn
+		db             *pgxpool.Pool
 
 		responder responder.Responder
 
@@ -53,9 +56,11 @@ type (
 		wordsRepo        repository.Words
 
 		// Service dependencies.
+		languagesService services.LanguagesService
 
 		// Delivery dependencies.
-		statusHTTPHandler delivery.StatusHTTP
+		statusHTTPHandler    delivery.StatusHTTP
+		languagesHTTPHandler delivery.LanguagesHTTP
 	}
 
 	worker func(ctx context.Context, a *App)
@@ -83,6 +88,7 @@ func (a *App) Run(ctx context.Context) {
 
 	// Register Dependencies
 	a.initLogger()
+	a.initValidator()
 	a.initDatabase(ctx)
 
 	// Domain registration.

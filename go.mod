@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/alex-bodnar/lib/config v0.0.0-20230717204535-78219d453629
-	github.com/alex-bodnar/lib/database v0.0.0-20230717204535-78219d453629
+	github.com/alex-bodnar/lib/database v0.0.0-20230730111106-9be2514e1cb8
 	github.com/alex-bodnar/lib/errs v0.0.0-20230717204535-78219d453629
 	github.com/alex-bodnar/lib/http/middleware/logger v0.0.0-20230717204535-78219d453629
 	github.com/alex-bodnar/lib/http/responder v0.0.0-20230717204535-78219d453629
@@ -17,6 +17,11 @@ require (
 )
 
 require (
+	github.com/jackc/puddle/v2 v2.2.0 // indirect
+	golang.org/x/sync v0.1.0 // indirect
+)
+
+require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
 	github.com/benbjohnson/clock v1.1.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
@@ -25,8 +30,6 @@ require (
 	github.com/go-playground/universal-translator v0.18.1 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20221227161230-091c0ba34f0a // indirect
-	github.com/jackc/pgx v3.6.2+incompatible
-	github.com/jmoiron/sqlx v1.3.5 // indirect
 	github.com/klauspost/compress v1.16.3 // indirect
 	github.com/leodido/go-urn v1.2.4 // indirect
 	github.com/lib/pq v1.10.9 // indirect
@@ -35,7 +38,7 @@ require (
 	github.com/mattn/go-runewidth v0.0.14 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/rivo/uniseg v0.2.0 // indirect
-	github.com/rubenv/sql-migrate v1.4.0 // indirect
+	github.com/rubenv/sql-migrate v1.5.2 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.48.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect

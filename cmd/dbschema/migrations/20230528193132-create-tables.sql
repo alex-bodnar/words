@@ -4,7 +4,7 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS languages (
     id            SERIAL                   NOT NULL UNIQUE PRIMARY KEY,
     language_name TEXT                     NOT NULL UNIQUE,
-    code          TEXT                     NOT NULL UNIQUE check (length(code) = 2),
+    code          TEXT                     NOT NULL UNIQUE check (length(code) !=0 AND length(code) <= 3),
     created_at    TIMESTAMP DEFAULT now()  NOT NULL,
     updated_at    TIMESTAMP DEFAULT now()  NOT NULL 
 );

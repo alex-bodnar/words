@@ -8,12 +8,11 @@ logger:
 
 storage:
   postgres:
-    connection-string: "host=localhost port=5432 user=postgres dbname=words password=postgres sslmode=disable"
-    dialect: postgres
+    connection-string: "postgres://postgres:postgres@127.0.0.1:5432/words?sslmode=disable"
     max-retries: 5
     retry-delay: 10s
-    query-timeout: 10s
     auto-migrate: true
+    dialect: postgres
     migration-directory: "dbschema/migrations"
     migration-direction: "up"
 

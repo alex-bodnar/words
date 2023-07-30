@@ -9,4 +9,9 @@ type (
 	StatusHTTP interface {
 		CheckStatus(ctx *fiber.Ctx) error
 	}
+
+	// LanguagesHTTP – describes an interface for work with languages over HTTP.
+	LanguagesHTTP interface {
+		Create(ctx *fiber.Ctx) error
+	}
 )

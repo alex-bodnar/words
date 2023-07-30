@@ -1,6 +1,9 @@
 package app
 
-import "github.com/alex-bodnar/words/internal/api/delivery/http/status"
+import (
+	"github.com/alex-bodnar/words/internal/api/delivery/http/languages"
+	"github.com/alex-bodnar/words/internal/api/delivery/http/status"
+)
 
 func (a *App) registerHTTPHandlers() {
 	a.statusHTTPHandler = status.NewHandler(
@@ -11,4 +14,6 @@ func (a *App) registerHTTPHandlers() {
 		a.meta.Info.Date,
 		a.meta.Info.FortuneCookie,
 	)
+
+	a.languagesHTTPHandler = languages.NewHandler(a.languagesService)
 }
